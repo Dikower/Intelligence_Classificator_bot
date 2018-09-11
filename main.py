@@ -70,7 +70,79 @@ def ask_5(bot, update, user_data):
         update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
         return None
 
+                                  
+def ask_21(bot, update, user_data):
+    if update.message.text in answers.keys():
+        user_data["Лингвистический"] += answers[update.message.text]
+        update.message.reply_text("21/28 У меня хорошее чувство равновесия, я люблю движение.")
+    else:
+        update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
+        return None
 
+
+def ask_22(bot, update, user_data):
+    if update.message.text in answers.keys():
+        user_data["Кинестетический"] += answers[update.message.text]
+        update.message.reply_text("22/28 Я могу видеть закономерности между понятиями и явлениями.")
+    else:
+        update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
+        return None
+
+
+def ask_23(bot, update, user_data):
+    if update.message.text in answers.keys():
+        user_data["Математико-логический"] += answers[update.message.text]
+        update.message.reply_text("23/28 В команде я сотрудничаю с другими, прислушиваюсь к их идеям.")
+    else:
+        update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
+        return None
+
+
+def ask_24(bot, update, user_data):
+    if update.message.text in answers.keys():
+        user_data["Межличностный"] += answers[update.message.text]
+        update.message.reply_text("24/28 Я наблюдателен и часто вижу то, что не видят другие.")
+    else:
+        update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
+        return None
+
+
+def ask_25(bot, update, user_data):
+    if update.message.text in answers.keys():
+        user_data["Визуально-пространственный"] += answers[update.message.text]
+        update.message.reply_text("25/28 Меня легко вывести из себя.")
+    else:
+        update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
+        return None
+
+
+def ask_26(bot, update, user_data):
+    if update.message.text in answers.keys():
+        user_data["Кинестетический"] += answers[update.message.text]
+        update.message.reply_text("26/28 Я люблю работать и учиться отдельно от других.")
+    else:
+        update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
+        return None
+
+
+def ask_27(bot, update, user_data):
+    if update.message.text in answers.keys():
+        user_data["Внутриличностный"] += answers[update.message.text]
+        update.message.reply_text("27/28 Я люблю сочинять музыку.")
+    else:
+        update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
+        return None
+
+
+def ask_28(bot, update, user_data):
+    if update.message.text in answers.keys():
+        user_data["Музыкальный"] += answers[update.message.text]
+        update.message.reply_text("28/28 Я могу оперировать числами и решать сложные математические задачи.")
+    else:
+        update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
+        return None 
+
+                                  
 def main():
     # Создаем объект updater. Вместо слова "TOKEN" надо разместить полученнй от @BotFather токен
     address = "178.76.203.134"
