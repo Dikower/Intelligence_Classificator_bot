@@ -70,13 +70,15 @@ def ask_5(bot, update, user_data):
         update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
         return None
                                   
- def ask_6(bot, update, user_data):
+                                  
+def ask_6(bot, update, user_data):
     if update.message.text in answers.keys():
         user_data["Лингвистический"] += answers[update.message.text]
         update.message.reply_text("6/28 Я всегда делаю все поэтапно.")
     else:
         update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
         return None
+                                  
 
 def ask_7(bot, update, user_data):
     if update.message.text in answers.keys():
@@ -85,6 +87,7 @@ def ask_7(bot, update, user_data):
     else:
         update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
         return None
+                                  
 
 def ask_8(bot, update, user_data):
     if update.message.text in answers.keys():
@@ -93,6 +96,7 @@ def ask_8(bot, update, user_data):
     else:
         update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
         return None
+                                  
 
 def ask_9(bot, update, user_data):
     if update.message.text in answers.keys():
@@ -101,6 +105,7 @@ def ask_9(bot, update, user_data):
     else:
         update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
         return None
+                                  
 
 def ask_10(bot, update, user_data):
     if update.message.text in answers.keys():
@@ -110,6 +115,7 @@ def ask_10(bot, update, user_data):
         update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
         return None
                                   
+                                  
 def ask_11(bot, update, user_data):
     if update.message.text in answers.keys():
         user_data["Музыкальный"] += answers[update.message.text]
@@ -118,6 +124,7 @@ def ask_11(bot, update, user_data):
     else:
         update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
         return None
+                                  
 
 def ask_12(bot, update, user_data):
     if update.message.text in answers.keys():
@@ -126,6 +133,7 @@ def ask_12(bot, update, user_data):
     else:
             update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
           return None
+                                      
 
 def ask_13(bot, update, user_data):
     if update.message.text in answers.keys():
@@ -134,6 +142,7 @@ def ask_13(bot, update, user_data):
     else:
         update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
         return None
+                                  
 
 def ask_14(bot, update, user_data):
     if update.message.text in answers.keys():
@@ -142,6 +151,8 @@ def ask_14(bot, update, user_data):
     else:
         update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
         return None
+                                  
+
 def ask_15(bot, update, user_data):
     if update.message.text in answers.keys():
         user_data["Кинестетический"] += answers[update.message.text]
@@ -149,6 +160,52 @@ def ask_15(bot, update, user_data):
     else:
         update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
         return None
+                                  
+
+def ask_16(bot, update, user_data):
+    if update.message.text in answers.keys():
+        user_data["Внутриличностный"] += answers[update.message.text]
+        update.message.reply_text("Я люблю одиночество и тишину во время работы и размышлений.")
+    else:
+        update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
+        return None
+                                  
+
+def ask_17(bot, update, user_data):
+    if update.message.text in answers.keys():
+        user_data["Внутриличностный"] += answers[update.message.text]
+        update.message.reply_text("В сложных музыкальных произведениях я могу на слух вычленить отдельные музыкальные инструменты.")
+    else:
+        update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
+        return None
+                                  
+
+def ask_18(bot, update, user_data):
+    if update.message.text in answers.keys():
+        user_data["Музыкальный"] += answers[update.message.text]
+        update.message.reply_text("Я могу зрительно легко представить сцены, которые я помню, или которые я придумал.")
+    else:
+        update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
+        return None
+
+
+def ask_19(bot, update, user_data):
+    if update.message.text in answers.keys():
+        user_data["Визуально-пространственный"] += answers[update.message.text]
+        update.message.reply_text("У меня богатый словарный запас.")
+    else:
+        update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
+        return None
+
+
+def ask_20(bot, update, user_data):
+    if update.message.text in answers.keys():
+        user_data["Лингвистический"] += answers[update.message.text]
+        update.message.reply_text("Я люблю делать записи, письменные зарисовки.")
+    else:
+        update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
+        return None
+                                  
                                   
 def ask_21(bot, update, user_data):
     if update.message.text in answers.keys():
