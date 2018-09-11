@@ -69,7 +69,46 @@ def ask_5(bot, update, user_data):
     else:
         update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
         return None
+                                  
+ def ask_6(bot, update, user_data):
+    if update.message.text in answers.keys():
+        user_data["Лингвистический"] += answers[update.message.text]
+        update.message.reply_text("6/28 Я всегда делаю все поэтапно.")
+    else:
+        update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
+        return None
 
+def ask_7(bot, update, user_data):
+    if update.message.text in answers.keys():
+        user_data["Математико-логический"] += answers[update.message.text]
+        update.message.reply_text("7/28 Я хорошо знаю себя и всегда понимаю, почему я поступаю так, а не иначе.")
+    else:
+        update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
+        return None
+
+def ask_8(bot, update, user_data):
+    if update.message.text in answers.keys():
+        user_data["Внутриличностный"] += answers[update.message.text]
+        update.message.reply_text("8/28 Мне нравится работа с общественностью и общественные мероприятия.")
+    else:
+        update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
+        return None
+
+def ask_9(bot, update, user_data):
+    if update.message.text in answers.keys():
+        user_data["Межличностный"] += answers[update.message.text]
+        update.message.reply_text("9/28 Я хорошо учусь, слушая других.")
+    else:
+        update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
+        return None
+
+def ask_10(bot, update, user_data):
+    if update.message.text in answers.keys():
+        user_data["Лингвистический"] += answers[update.message.text]
+        update.message.reply_text("10/28 Когда я слушаю музыку, у меня меняется настроение.")
+    else:
+        update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
+        return None
                                   
 def ask_21(bot, update, user_data):
     if update.message.text in answers.keys():
