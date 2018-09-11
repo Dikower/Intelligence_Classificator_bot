@@ -110,6 +110,46 @@ def ask_10(bot, update, user_data):
         update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
         return None
                                   
+def ask_11(bot, update, user_data):
+    if update.message.text in answers.keys():
+        user_data["Музыкальный"] += answers[update.message.text]
+        update.message.reply_text("11/28 Мне нравятся загадки, кроссворды, логические задачи.")
+
+    else:
+        update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
+        return None
+
+def ask_12(bot, update, user_data):
+    if update.message.text in answers.keys():
+            user_data["Математико-логический"] += answers[update.message.text]
+            update.message.reply_text("12/28 Для моего обучения очень важно визуальное представление материала: таблицы, графики, схемы")
+    else:
+            update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
+          return None
+
+def ask_13(bot, update, user_data):
+    if update.message.text in answers.keys():
+        user_data["Визуально-пространственный"] += answers[update.message.text]
+        update.message.reply_text("13/28 Я чувствителен к настроению и переживаниям окружающих.")
+    else:
+        update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
+        return None
+
+def ask_14(bot, update, user_data):
+    if update.message.text in answers.keys():
+        user_data["Межличностный"] += answers[update.message.text]
+        update.message.reply_text("14/28 Я учусь лучше, когда мне что-то нужно делать самостоятельно.")
+    else:
+        update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
+        return None
+def ask_15(bot, update, user_data):
+    if update.message.text in answers.keys():
+        user_data["Кинестетический"] += answers[update.message.text]
+        update.message.reply_text("15/28 Перед тем как учить что-то, мне нужно понимать, что в этом есть что-то нужное.")
+    else:
+        update.message.reply_text(f"Введите одно из предложенного: {', '.join(list(answers.keys()))}.")
+        return None
+                                  
 def ask_21(bot, update, user_data):
     if update.message.text in answers.keys():
         user_data["Лингвистический"] += answers[update.message.text]
