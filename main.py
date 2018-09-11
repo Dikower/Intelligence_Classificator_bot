@@ -184,12 +184,12 @@ def ask_28(bot, update, user_data):
                                   
 def main():
     # Создаем объект updater. Вместо слова "TOKEN" надо разместить полученнй от @BotFather токен
-    address = "178.76.203.134"
-    port = 9999
-    username = "telegram"
-    password = "yandexlyceum"
+    address = ""
+    port = ""
+    username = ""
+    password = ""
 
-    token = "576442066:AAG5q87UGk9KCCTcHRpLXt13dOkUSlMuuDw"
+    token = ""
     updater = Updater(token, request_kwargs={'proxy_url': f'socks5://{address}:{port}/',
                                              'urllib3_proxy_kwargs': {'username': username,
                                                                       'password': password}})
