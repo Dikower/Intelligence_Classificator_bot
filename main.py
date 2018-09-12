@@ -356,7 +356,9 @@ def finish(bot, update, user_data):
     intelligence_type = max(user_data.keys(), key=lambda x: user_data[x])
     bot.edit_message_text(text=f'Благодарим за прохождение теста! '
                                f'Вероятнее всего у вас "{intelligence_type}" тип интеллекта. '
-                               + meaning[intelligence_type],
+                               + meaning[intelligence_type]
+                               + '\nНад ботом работали:\n'
+                                 'Дин Дмитрий, Гордовой Денис, Мельников Константин, Абдулмаликов Максуд, Петров Данил',
                           chat_id=query.message.chat_id,
                           message_id=query.message.message_id)
 
@@ -427,15 +429,8 @@ def error(bot, update, error):
 
 
 def main():
-    address = ""
-    port = 
-    username = ""
-    password = ""
-
-    token = ""
-    updater = Updater(token, request_kwargs={'proxy_url': f'socks5://{address}:{port}/',
-                                             'urllib3_proxy_kwargs': {'username': username,
-                                                                      'password': password}})
+    token = "642728632:AAHYboT2irnD-ttxW377cLGccHM6PQF8PnI"
+    updater = Updater(token)
 
     conv_handler = ConversationHandler(
         # Без изменений
