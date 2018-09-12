@@ -1,0 +1,4 @@
+json
+logging
+matplotlib
+python-telegram-bot
