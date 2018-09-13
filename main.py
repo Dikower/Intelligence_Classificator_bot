@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import os
 import json
 import logging
 import matplotlib.patheffects as path_effects
@@ -25,21 +26,21 @@ keyboard = [[InlineKeyboardButton("Да", callback_data="Да"),
 reply_markup = InlineKeyboardMarkup(keyboard)
 start_button = InlineKeyboardMarkup([[InlineKeyboardButton("Начать тест", callback_data="start")]])
 
-meaning = {"Лингвистический": "Скорее всего, Вам нравится писать, читать и слушать. Вам следовало бы обратить на "
+meaning = {"Лингвистический": "Скорее всего Вам нравится писать, читать и слушать. Вам следовало бы обратить на "
                               "такие виды деятельности, как проведение докладов, написание литературы, дебаты.",
-           "Математико-логический": "Вероятно, Вы быстро решаете арифметические задача, любите анализировать данные." 
+           "Математико-логический": "Вероятно Вы быстро решаете арифметические задача, любите анализировать данные." 
                                     "Вам рекомендуется упражнятся в  построении логических цепочек, построении "
                                     "графиков, экспериментах.",
-           "Визуально-пространственный": "Видимо, Вы мыслите образами и любите рисовать, красить, лепить, "
+           "Визуально-пространственный": "Видимо Вы мыслите образами и любите рисовать, красить, лепить, "
                                           "рассматривать. Хорошо воспринимаете карты и диаграммы. Вам советуется "
                                           "заняться рисованием, фотографией, черчением.",
-           "Музыкальный": "Скорее всего, Вы чувствительны к разнообразию звуков в окружающей среде, "
+           "Музыкальный": "Скорее всего Вы чувствительны к разнообразию звуков в окружающей среде, "
                           "имеете хорошее чувство ритма. Вам следовало бы заняться игрой на музыкальном инструменте "
                           "или пением.",
            "Внутриличностный": "Похоже, что Вы сильно погружены в свой мир и демонстрируете чувство независимости. Вам "
                                "рекомендуется заняться самостоятельной работой/исследованиями, написанием литературы,"
                                " мысленными экспериментами.",
-           "Межличностный": "Видимо, Вы открытый человек и любите находиться в кругу людей, имеете много друзей."
+           "Межличностный": "Видимо Вы открытый человек и любите находиться в кругу людей, имеете много друзей."
                             "Вы могли бы попробовать себя в работе в команде, участии в дебатах,"
                             "интервьюировании",
            "Кинестетический": "Похоже, что вы отлично владеете своим телом и хорошо манипулируете предметами. "
@@ -355,7 +356,7 @@ def finish(bot, update, user_data):
     user_data["Математико-логический"] += answers[query.data]
     intelligence_type = max(user_data.keys(), key=lambda x: user_data[x])
     bot.edit_message_text(text=f'Благодарим за прохождение теста! '
-                               f'Вероятнее всего, у вас "{intelligence_type}" тип интеллекта. '
+                               f'Вероятнее всего у вас "{intelligence_type}" тип интеллекта. '
                                + meaning[intelligence_type]
                                + '\nНад ботом работали:\n'
                                  'Дин Дмитрий, Гордовой Денис, Мельников Константин, Абдулмаликов Максуд, Петров Данил',
@@ -416,7 +417,7 @@ def send_pie(bot, update, data):
     plt.legend(data.keys())
     plt.savefig(user_id + ".png")
     bot.send_photo(chat_id=user_id, photo=open(user_id + ".png", 'rb'))
-
+    os.remove(user_id + ".png")
 
 def stop(bot, update):
     update.message.reply_text("Прохождение теста приостановлено. Чтобы начать заново введите /start")
@@ -429,14 +430,19 @@ def error(bot, update, error):
 
 
 def main():
+    address = "178.76.203.134"
+    port = 9999
+    username = "telegram"
+    password = "yandexlyceum"
+
     token = "642728632:AAHYboT2irnD-ttxW377cLGccHM6PQF8PnI"
-    updater = Updater(token)
+    updater = Updater(token, request_kwargs={'proxy_url': f'socks5://{address}:{port}/',
+                                             'urllib3_proxy_kwargs': {'username': username,
+                                                                      'password': password}})
 
     conv_handler = ConversationHandler(
         # Без изменений
         entry_points=[CommandHandler('start', start, pass_user_data=True)],
-        # per_message=True,
-
         states={
             # Добавили user_data для сохранения ответа.
             1: [CallbackQueryHandler(ask_1)],
@@ -469,9 +475,10 @@ def main():
             28: [CallbackQueryHandler(ask_28, pass_user_data=True)],
             29: [CallbackQueryHandler(finish, pass_user_data=True)],
         },
-
-        # Без изменений
-        fallbacks=[CommandHandler('stop', stop)])
+        fallbacks=[CommandHandler('stop', stop)],
+        allow_reentry=True,
+        per_message=True,
+    )
 
     updater.dispatcher.add_handler(conv_handler)
     updater.dispatcher.add_handler(MessageHandler(Filters.text, message))
