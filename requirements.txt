@@ -1,3 +1,2 @@
-python-tk
 matplotlib
 python-telegram-bot
