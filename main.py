@@ -430,12 +430,12 @@ def error(bot, update, error):
 
 
 def main():
-    address = "178.76.203.134"
-    port = 9999
-    username = "telegram"
-    password = "yandexlyceum"
+    address = ""
+    port = 
+    username = ""
+    password = ""
 
-    token = "642728632:AAHYboT2irnD-ttxW377cLGccHM6PQF8PnI"
+    token = ""
     updater = Updater(token, request_kwargs={'proxy_url': f'socks5://{address}:{port}/',
                                              'urllib3_proxy_kwargs': {'username': username,
                                                                       'password': password}})
