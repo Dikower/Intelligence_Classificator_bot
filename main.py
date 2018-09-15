@@ -434,8 +434,10 @@ def error(bot, update, error):
 
 
 def main():
-    token = "642728632:AAHYboT2irnD-ttxW377cLGccHM6PQF8PnI"
-    updater = Updater(token)
+    TOKEN = "642728632:AAHYboT2irnD-ttxW377cLGccHM6PQF8PnI"
+    updater = Updater(TOKEN)
+    PORT = int(os.environ.get('PORT', '8443'))
+    
     logging.info("Bot initialized")
     conv_handler = ConversationHandler(
         # Без изменений
@@ -480,8 +482,13 @@ def main():
     updater.dispatcher.add_handler(conv_handler)
     updater.dispatcher.add_handler(MessageHandler(Filters.text, message))
     updater.dispatcher.add_error_handler(error)
+    
     logging.info("Handlers add successful")
-    updater.start_polling()
+    
+    updater.start_webhook(listen="0.0.0.0",
+                      port=PORT,
+                      url_path=TOKEN)
+    updater.bot.set_webhook("https://intelligence-classifer-bot.herokuapp.com/" + TOKEN)
     updater.idle()
 
 #
