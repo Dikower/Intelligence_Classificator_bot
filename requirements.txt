@@ -1,2 +1,3 @@
+gunicorn
 matplotlib
 python-telegram-bot
