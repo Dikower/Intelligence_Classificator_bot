@@ -419,6 +419,7 @@ def send_pie(bot, update, data):
     bot.send_photo(chat_id=user_id, photo=open(user_id + ".png", 'rb'))
     os.remove(user_id + ".png")
 
+
 def stop(bot, update):
     update.message.reply_text("Прохождение теста приостановлено. Чтобы начать заново введите /start")
     return ConversationHandler.END
@@ -470,7 +471,7 @@ def main():
         },
         fallbacks=[CommandHandler('stop', stop)],
         allow_reentry=True,
-        per_message=True,
+        # per_message=True,
     )
 
     updater.dispatcher.add_handler(conv_handler)
