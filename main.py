@@ -50,6 +50,7 @@ meaning = {"Лингвистический": "Скорее всего, Вам н
 
 
 def start(bot, update, user_data):
+    log.info("ConvHandler started")
     user_data["Лингвистический"] = 0
     user_data["Математико-логический"] = 0
     user_data["Визуально-пространственный"] = 0
@@ -435,7 +436,7 @@ def error(bot, update, error):
 def main():
     token = "642728632:AAHYboT2irnD-ttxW377cLGccHM6PQF8PnI"
     updater = Updater(token)
-
+    logging.info("Bot initialized")
     conv_handler = ConversationHandler(
         # Без изменений
         entry_points=[CommandHandler('start', start, pass_user_data=True)],
@@ -479,10 +480,11 @@ def main():
     updater.dispatcher.add_handler(conv_handler)
     updater.dispatcher.add_handler(MessageHandler(Filters.text, message))
     updater.dispatcher.add_error_handler(error)
-
+    logging.info("Handlers add successful")
     updater.start_polling()
     updater.idle()
 
 #
 if __name__ == '__main__':
+    logging.basicConfig(level=logging.DEBUG)
     main()
