@@ -4,11 +4,13 @@
 import os
 import json
 import logging
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.patheffects as path_effects
+import matplotlib.pyplot as plt
 
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, User
 from telegram.ext import Updater, MessageHandler, Filters, CommandHandler, CallbackQueryHandler, ConversationHandler
-import matplotlib.pyplot as plt
 
 
 
