@@ -50,7 +50,7 @@ meaning = {"Лингвистический": "Скорее всего, Вам н
 
 
 def start(bot, update, user_data):
-    log.info("ConvHandler started")
+    logging.info("ConvHandler started")
     user_data["Лингвистический"] = 0
     user_data["Математико-логический"] = 0
     user_data["Визуально-пространственный"] = 0
@@ -486,5 +486,4 @@ def main():
 
 #
 if __name__ == '__main__':
-    logging.basicConfig(level=logging.DEBUG)
     main()
